@@ -32,3 +32,5 @@ app_passed_finance(App, current_ratio_over_1_1) :-
 score(App, TotalScore) :- 
     app(App), 
     TotalScore = #sum { Weight, Rule : app_passed_finance(App, Rule), passed_weight(Rule, Weight) }.
+
+#show score/2.
