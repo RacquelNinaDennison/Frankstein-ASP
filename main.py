@@ -1,3 +1,4 @@
+import asyncio
 from pyexpat import model
 from clingo import Control 
 from pathlib import Path 
@@ -13,7 +14,7 @@ APPLICATIONS = INSTANCES/"application_data.lp"
 
 def main():
     frank = Frankenstein()
-    frank.pass_applications(APPLICATIONS)
+    asyncio.run(frank.pass_applications(APPLICATIONS))
 
 
 if __name__ == "__main__":
