@@ -42,7 +42,7 @@ route_passed(App) :-
 
 % 1. Aggregate the totals for APPROVED applications only
 total_approvals(A) :- A = #count { App : route_passed(App) }.
-total_premium(P)   :- P = #sum { Prem, App : route_passed(App), app_financials(App, _, Prem) }.
+total_premium(P)   :- P = #sum { Req, App : route_passed(App), app_data(App, _, Req) }.
 total_claims(C)    :- C = #sum { Claim, App : route_passed(App), app_financials(App, Claim, _) }.
 total_apps(T)      :- T = #count { App : app(App) }.
 

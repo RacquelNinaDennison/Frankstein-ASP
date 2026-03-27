@@ -1,20 +1,20 @@
 import asyncio
-from pyexpat import model
-from clingo import Control 
-from pathlib import Path 
-from  frankstein import Frankenstein
+from pathlib import Path
+from src.modules.frankstein import Frankenstein
+from src.modules.data_loader import load_applications
 
-# data 
-BASE = Path(__file__).parent 
-INSTANCES = BASE/ "src" / "data"
-APPLICATIONS = INSTANCES/"application_data.lp"
-
-
+BASE = Path(__file__).parent
+SAMPLE_DATA = BASE / "src" / "data" / "sample_applications.json"
 
 
 def main():
+    applications = load_applications(SAMPLE_DATA)
     frank = Frankenstein()
-    asyncio.run(frank.pass_applications(APPLICATIONS))
+    results = asyncio.run(frank.pass_applications(applications))
+
+    print("\n=== FINAL RESULTS ===")
+    for app_id, decision in results.items():
+        print(f"  {app_id}: {decision}")
 
 
 if __name__ == "__main__":
