@@ -3,7 +3,7 @@ import asyncio
 from pathlib import Path
 from src.modules.data_loader import to_ceiling_facts, to_credit_facts, to_finance_facts, to_optimization_facts
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parents[2] 
 ENCODINGS = BASE / "src" / "encodings"
 INSTANCES = BASE / "src" / "data"
 CELLING = ENCODINGS / "celling.lp"
@@ -89,7 +89,7 @@ class Frankenstein:
         """
  
 
-        optimal_weights = self.run_optimizations(OPTIMISED_FACTS)
+        optimal_weights = self.run_optimizations(str(OPTIMISED_FACTS))
 
         weight_facts = "\n".join(
             f"passed_weight({rule}, {weight})."
