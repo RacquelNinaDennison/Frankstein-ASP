@@ -10,3 +10,11 @@ uv run main.py
 
 This runs the full evaluation sequence. 
 
+To run the optimisation suite, first install the packages with 
+```
+uv sync
+```
+Then run the following:
+```
+uv run python -m clingcon src/data/application_data.lp src/encodings/finance_optimisation.lp
+```

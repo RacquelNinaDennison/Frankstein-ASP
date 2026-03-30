@@ -48,6 +48,16 @@ wheels = [
 ]
 
 [[package]]
+name = "clingcon"
+version = "5.2.1.post2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cffi" },
+    { name = "clingo" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4b/55/9304d185350b68b3943de30f66c73cc0c17b5c7f11858fb79fa9ea5d640a/clingcon-5.2.1.post2.tar.gz", hash = "sha256:30324b470d6373a6153b97d561b7ac32f771e160a8fd15e9575322aec5a54e73", size = 1531247, upload-time = "2024-02-16T17:48:53.872Z" }
+
+[[package]]
 name = "clingo"
 version = "5.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -73,11 +83,15 @@ name = "frankstein-asp"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "clingcon" },
     { name = "clingo" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "clingo", specifier = ">=5.8.0" }]
+requires-dist = [
+    { name = "clingcon", specifier = ">=5.2.1.post2" },
+    { name = "clingo", specifier = ">=5.8.0" },
+]
 
 [[package]]
 name = "pycparser"
